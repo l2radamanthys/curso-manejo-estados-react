@@ -6,8 +6,8 @@ import React from "react";
 function App() {
   return (
     <div className="App">
-      <UseState name="UseState"/>
-      <ClassState name="ClassState" />
+      <UseState name="Use State"/>
+      <ClassState name="Class State" />
     </div>
   );
 }
