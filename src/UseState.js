@@ -13,7 +13,7 @@ function UseState({ name }) {
     console.log("empezando el efecto");
 
     if (!!loading) {
-      setError(false);
+      // setError(false);
 
       setTimeout(() => {
         console.log("comenzando la validacion");
@@ -37,7 +37,7 @@ function UseState({ name }) {
         <h2>Eliminar {name}</h2>
         <p>Por favor, escribe el código de seguridad.</p>
 
-        {error && (
+        {(error && !loading) && (
           <p>Error: el código es incorrecto</p>
         )}
 
