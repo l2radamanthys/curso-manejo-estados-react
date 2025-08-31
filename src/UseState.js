@@ -22,11 +22,13 @@ function UseState({ name }) {
         console.log("comenzando la validacion");
         if (state.value === SECURITY_CODE) {
           setState({
+            ...state,
             loading: false,
             error: false,
           });
         } else {
           setState({
+            ...state,
             loading: false,
             error: true
           });
@@ -56,10 +58,10 @@ function UseState({ name }) {
           placeholder="Código de seguridad"
           value={state.value}
           onChange={(event) => {
-            setState({value: event.target.value})
+            setState({...state, value: event.target.value})
           }}/>
         <button
-          onClick={() => setState({loading: true})}
+          onClick={() => setState({...state, loading: true})}
         >Comprobar</button>
       </div>
   )
