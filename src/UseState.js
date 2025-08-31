@@ -12,12 +12,12 @@ function UseState({ name }) {
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  console.log(state)
+
   React.useEffect(() => {
     console.log("empezando el efecto");
 
-    if (!!loading) {
-      // setError(false);
-
+    if (!!state.loading) {
       setTimeout(() => {
         console.log("comenzando la validacion");
         if (state.value === SECURITY_CODE) {
@@ -30,7 +30,7 @@ function UseState({ name }) {
           setState({
             ...state,
             loading: false,
-            error: true
+            error: true,
           });
         }
 
@@ -50,7 +50,7 @@ function UseState({ name }) {
           <p>Error: el código es incorrecto</p>
         )}
 
-        {loading && (
+        {state.loading && (
           <p>Cargando...</p>
         )}
 
@@ -58,10 +58,18 @@ function UseState({ name }) {
           placeholder="Código de seguridad"
           value={state.value}
           onChange={(event) => {
-            setState({...state, value: event.target.value})
+            setState({
+              ...state,
+              value: event.target.value
+            });
           }}/>
         <button
-          onClick={() => setState({...state, loading: true})}
+          onClick={() => {
+            setState({
+              ...state,
+              loading: true
+            });
+          }}
         >Comprobar</button>
       </div>
   )
