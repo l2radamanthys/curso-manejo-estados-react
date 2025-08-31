@@ -14,15 +14,6 @@ class ClassState extends React.Component {
     };
   }
 
-  // componentWillMount() {
-  // UNSAFE_componentWillMount() {
-  //   console.log("componentWillMount");
-  // }
-
-  // componentDidMount() {
-  //   console.log("componentDidMount");
-  // }
-
   componentDidUpdate() {
     console.log("componentDidUpdate");
 
