@@ -1,0 +1,15 @@
+.TodoList {
+  margin: 0;
+  padding: 0 0 78px 0;
+  list-style: none;
+}
+
+.listSeparator {
+  /* font-family: "Bebas Neue", Arial, Helvetica, sans-serif;*/ 
+  font-size: 16pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  margin: 0.5rem;
+}
