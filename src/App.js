@@ -1,6 +1,6 @@
 import './App.css';
 import { UseState } from './UseState.js';
-import { ClassState } from './ClassState.js';
+import { UseReducer } from './UseReducer.js';
 import React from "react";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <UseState name="Use State"/>
       <br />
       <hr />
-      <ClassState name="Class State" />
+      <UseReducer name="Use Reducer"/>
     </div>
   );
 }
