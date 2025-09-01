@@ -5,6 +5,30 @@ const SECURITY_CODE = "paradigma";
 function UseReducer({ name }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
+  const onConfirm = () => {
+    dispatch({ type: actionTypes.confirm });
+  };
+
+  const onError = () => {
+    dispatch({ type: actionTypes.error });
+  };
+
+  const onWrite = (newValue) => {
+    dispatch({ type: actionTypes.write, payload: newValue });
+  };
+
+  const onCheck = () => {
+    dispatch({ type: actionTypes.check });
+  };
+
+  const onDelete = () => {
+    dispatch({ type: actionTypes.delete });
+  };
+
+  const onReset = () => {
+    dispatch({ type: actionTypes.reset });
+  }
+
   React.useEffect(() => {
     console.log("empezando el efecto");
 
@@ -12,13 +36,9 @@ function UseReducer({ name }) {
       setTimeout(() => {
         console.log("comenzando la validacion");
         if (state.value === SECURITY_CODE) {
-          dispatch({
-            type: actionTypes.confirm
-          });
+          onConfirm();
         } else {
-          dispatch({
-            type: actionTypes.error
-          });
+          onError();
         }
 
         console.log("terminando la validacion");
@@ -48,12 +68,10 @@ function UseReducer({ name }) {
           placeholder="Código de seguridad"
           value={state.value}
           onChange={(event) => {
-            dispatch({ type: actionTypes.write, payload: event.target.value });
+            onWrite(event.target.value);
           }}/>
         <button
-          onClick={() => {
-            dispatch({ type: actionTypes.check });
-          }}
+          onClick={onCheck}
         >Comprobar</button>
       </div>
     );
@@ -63,14 +81,10 @@ function UseReducer({ name }) {
         <h2>Eliminar {name}</h2>
         <p>Pedimos confirmación</p>
         <button
-          onClick={() => {
-            dispatch({type: actionTypes.delete});
-          }}
+          onClick={onDelete}
         >Sí, eliminar</button>
         <button
-          onClick={() => {
-            dispatch({type: actionTypes.reset});
-          }}
+          onClick={onReset}
         >No</button>
       </React.Fragment>
     );
@@ -80,9 +94,7 @@ function UseReducer({ name }) {
         <h2>Eliminar {name}</h2>
         <p>Eliminado con exíto.</p>
         <button
-          onClick={() => {
-            dispatch({type: actionTypes.reset});
-          }}
+          onClick={onReset}
         >Resetear</button>
       </React.Fragment>
     );
