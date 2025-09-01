@@ -13,8 +13,8 @@ function UseReducer({ name }) {
     dispatch({ type: actionTypes.error });
   };
 
-  const onWrite = (newValue) => {
-    dispatch({ type: actionTypes.write, payload: newValue });
+  const onWrite = ({ target: { value } }) => {
+    dispatch({ type: actionTypes.write, payload: value });
   };
 
   const onCheck = () => {
@@ -67,9 +67,8 @@ function UseReducer({ name }) {
         <input
           placeholder="Código de seguridad"
           value={state.value}
-          onChange={(event) => {
-            onWrite(event.target.value);
-          }}/>
+          onChange={onWrite}
+        />
         <button
           onClick={onCheck}
         >Comprobar</button>
