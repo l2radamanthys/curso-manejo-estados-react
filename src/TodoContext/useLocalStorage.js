@@ -15,11 +15,7 @@ function useLocalStorage(itemName, initialValue) {
   const onSave = (item) => dispatch({ type: actionTypes.save, payload: item }); 
   const onSincronize = () => dispatch({ type: actionTypes.sincronize });
 
-  console.log(item)
-
   React.useEffect(() => {
-    console.log("iniciando sincronizacion")
-
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
@@ -30,14 +26,10 @@ function useLocalStorage(itemName, initialValue) {
         } else {
           parsedItem = JSON.parse(localStorageItem);
         }
-        // setItem(parsedItem);
-        // setLoading(false);
-        // setSincronizedItem(true);
         onSuccess(parsedItem);
       } catch (error) {
         onError(error);
       }
-      console.log("fin lectura localstorage")
     }, 1000);
   }, [sincronizedItem]);
 

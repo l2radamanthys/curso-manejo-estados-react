@@ -6,7 +6,6 @@ function useStorageListener(sincronize) {
   React.useEffect(() => {
     const onChange = (event) => {
       if (event.key === "TODOS_V1") {
-        console.log("Hubo cambios en TODOS_V1");
         setStorageChange(true);
       }
     };
