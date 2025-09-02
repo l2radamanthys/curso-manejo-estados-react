@@ -7,6 +7,7 @@ function TodoProvider({ children }) {
   const {
     item: todos,
     saveItem: saveTodos,
+    sincronizeItem: sincronizeTodos,
     loading,
     error,
   } = useLocalStorage('TODOS_V1', []);
@@ -67,6 +68,7 @@ function TodoProvider({ children }) {
       deleteTodo,
       openModal,
       setOpenModal,
+      sincronizeTodos,
     }}>
       {children}
     </TodoContext.Provider>

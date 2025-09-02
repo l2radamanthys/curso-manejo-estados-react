@@ -4,7 +4,7 @@ import { TodoContext } from '../TodoContext';
 
 function TodoCounter() {
   const {completedTodos, totalTodos} = React.useContext(TodoContext);
- 
+
   if (totalTodos === 0) {
     return (<h3 className="TodoCounter">
       You don't have any tasks loaded.

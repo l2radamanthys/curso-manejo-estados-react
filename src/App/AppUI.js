@@ -1,17 +1,19 @@
+import React from 'react';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from '../TodoContext';
-import React from 'react';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
+import { ChangeAlert } from '../ChangeAlert';
 
 function AppUI() {
   const {
     openModal,
     setOpenModal,
+    sincronizeTodos
   } = React.useContext(TodoContext);
   return (
     <>
@@ -30,6 +32,8 @@ function AppUI() {
           <TodoForm />
         </Modal>
       )}
+
+      <ChangeAlert sincronize={sincronizeTodos}/>
     </>
   );
 }
